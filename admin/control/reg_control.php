@@ -1,5 +1,8 @@
 
 <?php
+
+include "../model/db.php";
+
     $unameError="";
     $emailError="";
     $uname="";
@@ -31,6 +34,22 @@ else
     {
         echo "cant upload file";
         $hasError ="1";
+    }
+
+if($hasError=="")
+    {
+        $db= new mydb();
+        $conobj=$db->openConn();
+        $results=$db->insertData("user",$_REQUEST["uname"],$_REQUEST["email"],
+        $_REQUEST["password"],"../uploads/".$_FILES["myfile"]["name"],$conobj);
+if($results)
+    {
+        header("Location: ../view/submit.php");
+    }
+    else{
+        echo $conobj->error;
+    }
+
     }
 
 

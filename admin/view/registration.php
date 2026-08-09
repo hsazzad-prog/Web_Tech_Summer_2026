@@ -1,5 +1,5 @@
 <?php
-include "../control/reg_control.php";
+require "../control/reg_control.php";
 ?>
 
 <html>
