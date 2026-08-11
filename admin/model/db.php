@@ -12,6 +12,12 @@ function insertData($table,$uname,$email,$password,$filename,$conn)
     ('$uname', '$email', '$password','$filename')";
     return $conn->query($sql);
 }
+function checkLogin($conn, $table, $uname,)
+{
+    $sql="SELECT * FROM $table WHERE username='$uname'";
+    return $conn->query($sql);
+}
+
 
 }
 

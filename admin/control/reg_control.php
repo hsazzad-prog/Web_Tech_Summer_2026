@@ -2,7 +2,7 @@
 <?php
 
 include "../model/db.php";
-
+//password_hash($password,PASSWORD_DEFAULT)
     $unameError="";
     $emailError="";
     $uname="";
@@ -41,7 +41,7 @@ if($hasError=="")
         $db= new mydb();
         $conobj=$db->openConn();
         $results=$db->insertData("user",$_REQUEST["uname"],$_REQUEST["email"],
-        $_REQUEST["password"],"../uploads/".$_FILES["myfile"]["name"],$conobj);
+    password_hash($_REQUEST["password"],PASSWORD_DEFAULT),"../uploads/".$_FILES["myfile"]["name"],$conobj);
 if($results)
     {
         header("Location: ../view/submit.php");
