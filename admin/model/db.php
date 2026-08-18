@@ -17,6 +17,11 @@ function checkLogin($conn, $table, $uname,)
     $sql="SELECT * FROM $table WHERE username='$uname'";
     return $conn->query($sql);
 }
+function findUserByUname($table,$uname, $conn){
+    $sql= "SELECT * FROM $table WHERE username='$uname'";
+    return $conn->query($sql);
+}
+
 
 
 }

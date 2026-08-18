@@ -1,5 +1,11 @@
 <?php
 include "../model/db.php";
+session_start();
+if(!empty($_SESSION["uname"])){
+header("Location: ../view/profile.php") ;
+}
+
+
 if (isset($_POST["login"])) {
 
     $mydb = new mydb();
@@ -10,6 +16,7 @@ if (isset($_POST["login"])) {
             $hased_password = $row["password"];
         }
         if (password_verify($_POST["password"], $hased_password)) {
+$_SESSION["uname"]=$_POST["uname"];
             header("Location: ../view/profile.php");
         }
 

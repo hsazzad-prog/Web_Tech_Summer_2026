@@ -1,3 +1,16 @@
+<?php
+
+setcookie("user","set", time()+(86400*30));
+
+if(isset($_COOKIE["user"])) {
+    echo "you have visited me before";
+}
+else {
+    echo  "Welcome !!";
+}
+?>
+
+
 <!DOCTYPE html>
 <?php
 echo "<h1>Hello world PHP<h1>";
